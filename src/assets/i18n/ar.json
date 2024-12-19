@@ -1,0 +1,19 @@
+{
+    "projectCutName": "EMS",
+    "projectFullName": "نظام إدارة الموظفين",
+    "common": {
+        "search": "بحث",
+        "viewDetails": "انظر التفاصيل",
+        "employeesList": "قائمة الموظفين",
+        "home": "الرئيسية"
+    },
+    "accessibility": {
+        "switchLang": "التحويل إلى الإنجليزية"
+    },
+    "header": {
+        "logo": {
+            "title": "أذهب إلى الصفحة الرئيسية"
+        },
+        "language": "انتقل الى الأنجليزية"
+    }
+}

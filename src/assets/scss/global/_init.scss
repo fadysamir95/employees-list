@@ -1,0 +1,38 @@
+﻿/*  default
+================================ */
+$base-font-size: 16px;
+html {
+    font-size: $base-font-size;
+    background-color: $white;
+}
+
+body {
+    line-height: 1.6;
+    font-weight: 400;
+    font-family: 'helvetica', sans-serif !important;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 4rem); // Scales between 32px and 64px
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: clamp(1.75rem, 4vw + 1rem, 3.5rem); // Scales between 28px and 56px
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem); // Scales between 24px and 40px
+}
+
+p {
+    font-size: clamp(1rem, 1.2vw + 1rem, 1.2rem); // Scales between 16px and 19.2px
+}
+
+/*  reset
+================================ */
+ul,
+ol {
+    padding: 0;
+    margin: 0;
+}

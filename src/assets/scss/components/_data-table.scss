@@ -1,0 +1,133 @@
+table {
+    thead {
+        tr {
+            th {
+                color: $white !important;
+                font-size: px-to-rem(16px);
+                padding: px-to-rem(22px) !important;
+                background-color: $primary !important;
+                font-family: 'helvetica';
+                @include respond-to-max(medium) {
+                    min-width: px-to-rem(150px);
+                    font-size: px-to-rem(14px);
+                    padding: px-to-rem(11px);
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            &:nth-child(2n + 1) {
+                td {
+                    background-color: $gray-10 !important;
+                }
+            }
+
+            td {
+                text-align: $def-float !important;
+                font-size: px-to-rem(16px);
+                color: $gray-900;
+                font-family: 'helvetica';
+                padding: px-to-rem(11px) !important;
+
+                .actions {
+                    display: flex;
+                    align-items: center;
+                    span {
+                        margin-#{$opp-float}: px-to-rem(13px);
+                    }
+
+                    a {
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.p-paginator {
+    margin-top: px-to-rem(10px);
+
+    p-inputnumber {
+        display: none;
+    }
+
+    .p-paginator-element {
+        &:not(.p-disabled) {
+            &:hover {
+                background-color: lighten($primary, 10%);
+                .p-icon-wrapper {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .p-paginator-next,
+    .p-paginator-first {
+        background-color: $white;
+        border-top-#{$def-float}-radius: px-to-rem(10px);
+        border-bottom-#{$def-float}-radius: px-to-rem(10px);
+        border: 1px solid $gray-30;
+    }
+
+    .p-paginator-prev,
+    .p-paginator-last {
+        background-color: $white;
+        border-top-#{$opp-float}-radius: px-to-rem(10px);
+        border-bottom-#{$opp-float}-radius: px-to-rem(10px);
+        border: 1px solid $gray-30;
+    }
+
+    .p-paginator-prev {
+        @include respond-to-max(medium) {
+            margin-#{$opp-float}: px-to-rem(15px);
+        }
+    }
+
+    .p-paginator-next {
+        @include respond-to-max(medium) {
+            margin-#{$def-float}: px-to-rem(15px);
+        }
+    }
+
+    .p-paginator-pages {
+        margin: 0 px-to-rem(8px);
+        @include respond-to-max(medium) {
+            display: none;
+        }
+
+        .p-paginator-element {
+            border-radius: px-to-rem(10px);
+
+            &.p-highlight {
+                margin: px-to-rem(5px);
+                background-color: $primary;
+                color: $white;
+            }
+
+            &:hover {
+                background-color: lighten($primary, 10%);
+                color: $white;
+            }
+        }
+    }
+}
+
+html[lang="ar"] {
+
+    .p-paginator-next,
+    .p-paginator-last,
+    .p-paginator-prev,
+    .p-paginator-first {
+        .p-icon-wrapper {
+            transform: rotate(180deg);
+        }
+    }
+}

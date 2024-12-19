@@ -1,0 +1,20 @@
+#footer {
+    padding: px-to-rem(20px) px-to-rem(30px) 0 px-to-rem(30px);
+    background-color: $primary;
+    p {
+        color: $white;
+        font-size: px-to-rem(15px);
+    }
+    .logo {
+        img {
+            min-width: px-to-rem(130px);
+        }
+    }
+    .nav {
+        .nav-item {
+            a {
+                color: $white;
+            }
+        }
+    }
+}

@@ -1,0 +1,3 @@
+.primary-button {
+    @include button-styles($primary, $white, lighten($primary, 10%), $white);
+}

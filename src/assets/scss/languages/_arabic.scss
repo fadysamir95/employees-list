@@ -1,0 +1,20 @@
+/* rtl variable support
+================================ */
+$def-float: right;
+$opp-float: left;
+$def-direction: rtl;
+$opp-direction: ltr;
+$body-text-align: $def-float;
+$def-scale: -1;
+$opp-scale: 1;
+$breadcrumb-rotate-angel: 90deg;
+
+/* Arabic fonts used
+================================ */
+// $default-fonts: Almarai-Regular "Almarai-Regular" normal, Almarai-Light "Almarai-Light" 300, Almarai-Bold "Almarai-Bold" 700, Almarai-ExtraBold "Almarai-ExtraBold" 800;
+// $fonts-ext: woff woff2;
+// $default-fonts-folder: 'web-fonts/Almarai';
+
+/* Generate font face used 
+================================ */
+// @include font-face($default-fonts, $default-fonts-folder, normal, normal, $fonts-ext);

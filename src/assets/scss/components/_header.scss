@@ -1,0 +1,161 @@
+header {
+    .navbar {
+        background-color: $primary;
+        padding: px-to-rem(9px) px-to-rem(55px) px-to-rem(9px);
+        border-bottom: px-to-rem(5px) solid $secondary;
+
+        @include respond-to-max(medium) {
+            padding: px-to-rem(15px) px-to-rem(35px);
+        }
+
+        .navbar-toggler {
+            border-color: $white;
+            background-color: $white;
+
+            &:hover,
+            &:active,
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        .navbar-brand {
+            margin-#{$opp-float}: px-to-rem(16px);
+            margin-#{$def-float}: 0;
+
+            img {
+                width: auto;
+                height: auto;
+                max-width: px-to-rem(130px);
+                @include respond-to-max(medium) {
+                    width: px-to-rem(200px);
+                }
+            }
+        }
+
+        .search-input {
+            @include respond-to-max(medium) {
+                display: none;
+            }
+
+            input {
+                background-color: $primary-darker;
+                padding: px-to-rem(10px);
+                border: 1px solid $primary-darker-2;
+                border-radius: px-to-rem(8px);
+                width: px-to-rem(272px);
+                border-top-#{$opp-float}-radius: 0;
+                border-bottom-#{$opp-float}-radius: 0;
+                border-#{$opp-float}: 0;
+                color: $gray-20;
+
+                &::placeholder {
+                    color: $gray-20;
+                }
+
+                &:hover,
+                &:active,
+                &:focus {
+                    outline: 0;
+                }
+            }
+
+            .p-inputgroup-addon {
+                background-color: $primary-darker;
+                border-color: $primary-darker-2;
+                border-radius: px-to-rem(8px);
+                border-top-#{$def-float}-radius: 0;
+                border-bottom-#{$def-float}-radius: 0;
+                border-#{$def-float}: 0;
+                padding: px-to-rem(10px);
+
+                i {
+                    &::before {
+                        color: $white;
+                    }
+                }
+            }
+        }
+
+        .navbar-nav {
+            width: 100%;
+            justify-content: flex-end;
+
+            @include respond-to-max(medium) {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: px-to-rem(15px);
+            }
+
+            .language-switcher {
+                margin: auto;
+                margin-#{$opp-float}: 0;
+
+                @include respond-to-max(medium) {
+                    margin: 0;
+                }
+
+                button {
+                    background-color: $white;
+                    border-radius: 50%;
+                    border: 0;
+                    width: px-to-rem(39px);
+                    height: px-to-rem(39px);
+
+                    i {
+                        &::before {
+                            width: px-to-rem(20px);
+                            height: auto;
+                            color: $secondary;
+                        }
+                    }
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        background-color: $secondary;
+
+                        i {
+                            &::before {
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+                .switcher-wrapper {
+                    display: flex;
+                    align-items: center;
+                    span {
+                        color: $white;
+                        font-size: px-to-rem(16px);
+                        margin-#{$def-float}: px-to-rem(10px);
+                    }
+                }
+            }
+
+            .custom-dropdown-container {
+                display: flex;
+                align-items: center;
+                position: relative;
+                .placeholder-image {
+                    position: absolute;
+                    top: 55%;
+                    transform: translateY(-50%);
+                    margin-#{$def-float}: px-to-rem(10px);
+                    p-avatar {
+                        width: px-to-rem(39px);
+                        height: px-to-rem(39px);
+                    }
+                }
+                .p-dropdown {
+                    .p-dropdown-label {
+                        span {
+                            margin-#{$def-float}: px-to-rem(40px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

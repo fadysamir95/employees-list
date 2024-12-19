@@ -1,0 +1,26 @@
+// vendors
+@import "./vendors/bootstrap-v5.3.3/bootstrap";
+
+// init
+@import "./global/config";
+@import "./global/variables";
+@import "./global/colors";
+@import "./global/fonts";
+@import "./global/init";
+@import "./global/base";
+@import "./global/mixins";
+@import './global/functions';
+@import "./languages/fonts-mixins";
+@import "./global/layout";
+
+// Icons
+@import '../icons/style';
+
+// Components
+@import "./components/inputs";
+@import "./components/buttons";
+@import "./components/scrollbar";
+@import "./components/header";
+@import "./components/side-nav";
+@import "./components/data-table";
+@import "./components/footer";

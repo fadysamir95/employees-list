@@ -1,0 +1,103 @@
+<div class="card">
+  <h2>Create New Employee</h2>
+  <form (ngSubmit)="createEmployee()" #employeeForm="ngForm">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        id="firstName"
+        name="firstName"
+        type="text"
+        [(ngModel)]="newEmployee.firstName"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input
+        id="lastName"
+        name="lastName"
+        type="text"
+        [(ngModel)]="newEmployee.lastName"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input
+        id="phone"
+        name="phone"
+        type="text"
+        [(ngModel)]="newEmployee.phone"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        [(ngModel)]="newEmployee.email"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="salary">Salary</label>
+      <input
+        id="salary"
+        name="salary"
+        type="number"
+        [(ngModel)]="newEmployee.salary"
+        class="form-control"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Create Employee</button>
+  </form>
+
+  <hr />
+</div>
+
+<div class="card">
+  <p-table [value]="employees" [scrollable]="true" [rowHover]="true"
+    responsiveLayout="scroll" [resizableColumns]="true" columnResizeMode="expand">
+    <!-- Header -->
+    <ng-template #header>
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <!-- Body -->
+    <ng-template #body let-employee>
+      <tr>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.firstName }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>{{ employee.phone }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.salary }}</td>
+        <td>
+          <div class="actions">
+            <span class="icon-file-search"></span>
+            <a [routerLink]="" class="p-button-text">
+              {{ details | transloco }}
+            </a>
+            <button (click)="deleteEmployee(employee.id)" class="p-button p-button-danger">
+              Delete
+            </button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

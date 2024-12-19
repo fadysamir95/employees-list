@@ -1,0 +1,4 @@
+<div class="switcher-wrapper">
+    <button (click)="changeLanguage()" role="button" [attr.aria-labelledby]="switch | transloco"><i class="icon-global"></i></button>
+    <span>{{ language | transloco }}</span>
+</div>

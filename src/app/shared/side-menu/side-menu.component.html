@@ -1,0 +1,5 @@
+<li class="nav-item" routerLinkActive="nav-item-active" [routerLinkActiveOptions]="{ exact: true }" *ngFor="let item of menuItems">
+    <a class="nav-link" [routerLink]="item.route">
+        <span>{{ item.key | transloco }}</span>
+    </a>
+</li>

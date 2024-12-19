@@ -1,0 +1,19 @@
+{
+    "projectCutName": "EMS",
+    "projectFullName": "Employees Management System",
+    "common": {
+        "search": "Search",
+        "viewDetails": "View Details",
+        "employeesList": "Employees List",
+        "home": "Home"
+    },
+    "accessibility": {
+        "switchLang": "Switch to Arabic"
+    },
+    "header": {
+        "logo": {
+            "title": "Go to homepage"
+        },
+        "language": "Switch To Arabic"
+    }
+}

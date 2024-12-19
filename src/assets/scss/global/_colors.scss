@@ -1,0 +1,44 @@
+// Base Colors
+$primary: #03424C; // Primary color
+$secondary: #FF851B; // Secondary color
+$primary-darker: #02373f; // Primary darker color
+$primary-darker-2: #023037; // Primary darker color 2
+$success: #198754; // Green for success messages
+$info: #0dcaf0; // Light blue for info messages
+$warning: #ffc107; // Yellow for warnings
+$danger: #dc3545; // Red for errors
+$delete: #D13C3C;
+$light: #f8f9fa; // Light gray background
+$dark: #212529; // Dark gray, almost black
+// Neutral Colors
+$white: #ffffff;
+$black: #000000;
+$gray-10: #fafafa;
+$gray-20: #f6f6f6;
+$gray-30: #E0E1E1;
+$gray-50: #C4C5C6;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #495057;
+$gray-700: #3E4243;
+$gray-800: #343a40;
+$gray-900: #14181A;
+// Custom Colors
+$brand-color-1: #ff6f61; // Example brand color 1
+$brand-color-2: #5a9bd3; // Example brand color 2
+$accent-color: #ffb703;  // Accent color for highlights
+// Utility Colors
+$border-color: $gray-300;
+$background-color: $gray-100;
+$text-muted: $gray-600;
+$link-color: $primary;
+// Bootstrap Overrides
+$body-bg: $gray-100;
+$body-color: $dark;
+$btn-primary-bg: $primary;
+$btn-primary-border: $primary;
+$link-hover-color: darken($primary, 10%);
+$placeholder: #AAACAD;

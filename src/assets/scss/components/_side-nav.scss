@@ -1,0 +1,33 @@
+#sidenav {
+    background-color: $white;
+    padding-top: px-to-rem(40px);
+    @include respond-to-max(medium) {
+        padding: px-to-rem(30px) px-to-rem(28px) px-to-rem(15px) px-to-rem(28px);
+    }
+
+    .nav-item {
+        list-style-type: none;
+        padding: px-to-rem(10px) px-to-rem(25px);
+        margin-bottom: px-to-rem(7px);
+        border-top-#{$opp-float}-radius: px-to-rem(12px);
+        border-bottom-#{$opp-float}-radius: px-to-rem(12px);
+        border-#{$def-float}: px-to-rem(6px) solid $white;
+
+        &:hover {
+            background-color: $gray-10;
+            border-#{$def-float}-color: $secondary;
+        }
+
+        .nav-link {
+            span {
+                font-size: px-to-rem(15px);
+                color: $secondary;
+                font-family: 'helvetica-bold';
+            }
+        }
+        &-active {
+            background-color: $gray-10;
+            border-#{$def-float}: px-to-rem(6px) solid $secondary;
+        }
+    }
+}
