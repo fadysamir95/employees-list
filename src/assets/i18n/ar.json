@@ -5,7 +5,22 @@
         "search": "بحث",
         "viewDetails": "انظر التفاصيل",
         "employeesList": "قائمة الموظفين",
-        "home": "الرئيسية"
+        "home": "الرئيسية",
+        "update": "تحديث",
+        "delete": "حذف",
+        "create": "إضافة موظف جديد",
+        "add": "إضافة",
+        "confirmDelete": "هل أنت متأكد أنك تريد حذف هذا الموظف؟",
+        "cancel": "إلغاء",
+        "requiredField": "هذا الحقل مطلوب",
+        "invalidEmail": "الرجاء إدخال عنوان بريد إلكتروني صالح",
+        "employees": "الموظفين",
+        "managementSystem": "نظام إدارة",
+        "employeeCreatedSuccessfully": "تم إنشاء الموظف بنجاح!",
+        "employeeUpdatedSuccessfully": "تم تحديث الموظف بنجاح!",
+        "success": "نجاح",
+        "close": "إغلاق",
+        "loading": "جارى التحميل..."
     },
     "accessibility": {
         "switchLang": "التحويل إلى الإنجليزية"
@@ -15,5 +30,14 @@
             "title": "أذهب إلى الصفحة الرئيسية"
         },
         "language": "انتقل الى الأنجليزية"
+    },
+    "table": {
+        "id": "الرقم التعريفى",
+        "firstName": "الأسم الاول",
+        "lastName": "الأسم الأخير",
+        "phone": "رقم التليفون",
+        "email": "البريد الإلكترونى",
+        "salary": "المرتب",
+        "actions": "العمليات"
     }
 }

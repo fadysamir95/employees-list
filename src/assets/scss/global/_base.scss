@@ -15,3 +15,15 @@
         color: darken($delete, 10%);
     }
 }
+
+.error-label {
+    span {
+        color: $danger;
+        font-size: px-to-rem(13px);
+        margin-top: px-to-rem(2px);
+    }
+}
+
+.color-secondary {
+    color: $secondary;
+}

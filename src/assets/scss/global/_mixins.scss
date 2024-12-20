@@ -47,7 +47,7 @@ $breakpoints: (
     border: none;
     border-radius: px-to-rem(8px);
     height: px-to-rem(40px);
-    width: px-to-rem(119px);
+    width: auto;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     display: flex;

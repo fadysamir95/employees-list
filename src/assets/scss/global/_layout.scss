@@ -1,14 +1,13 @@
 #wrapper {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(auto-fit, auto);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     background-color: $white;
-    min-height: 100vh;
 
     #header {
         grid-area: 1 / 1 / 2 / 9;
+        max-height: max-content;
     }
 
     #sidenav {
@@ -19,13 +18,14 @@
     }
 
     #content-wrapper {
-        background-color: $white;
+        background-color: $gray-20;
         grid-area: 2 / 2 / 3 / 9;
         padding: px-to-rem(46px) px-to-rem(56px);
-        min-height: px-to-rem(300px);
+        min-height: 65vh;
         @include respond-to-max(medium) {
             grid-area: 3 / 1 / 4 / 9;
             padding: px-to-rem(23px) px-to-rem(28px);
+            min-height: px-to-rem(300px);
         }
     }
 

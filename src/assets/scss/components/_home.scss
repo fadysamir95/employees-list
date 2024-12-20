@@ -1,0 +1,31 @@
+.welcome {
+    text-align: center;
+    &-logo {
+        margin-bottom: px-to-rem(15px);
+        img {
+            width: px-to-rem(100px);
+        }
+    }
+    &-text {
+        font-size: px-to-rem(22px);
+        color: $primary;
+        font-family: 'helvetica';
+    }
+    &-action {
+        width: px-to-rem(200px);
+        margin: px-to-rem(20px) auto;
+    }
+}
+
+html[lang="ar"] {
+    .welcome {
+        &-text {
+            display: flex;
+            justify-content: center;
+            flex-direction: row-reverse;
+            .employees {
+                margin-right: px-to-rem(5px);
+            }
+        }
+    }
+}

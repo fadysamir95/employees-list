@@ -1,1 +1,13 @@
-<p>home works!</p>
+<!-- Welcome -->
+<div class="welcome">
+    <a class="welcome-logo" routerLink="/">
+        <img src="assets/images/logo-img.png" alt="{{ alt | transloco }}" title="{{ title | transloco }}" width="100"
+            height="30" />
+    </a>
+    <h2 class="welcome-text"><span class="color-secondary employees">{{ employees | transloco }}</span> {{ managementSystem | transloco }}</h2>
+    <div class="welcome-action">
+        <a class="secondary-button" routerLink="/employees-list">
+            {{ employeesList | transloco }}
+        </a>
+    </div>
+</div>

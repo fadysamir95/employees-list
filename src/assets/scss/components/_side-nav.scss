@@ -9,12 +9,10 @@
         list-style-type: none;
         padding: px-to-rem(10px) px-to-rem(25px);
         margin-bottom: px-to-rem(7px);
-        border-top-#{$opp-float}-radius: px-to-rem(12px);
-        border-bottom-#{$opp-float}-radius: px-to-rem(12px);
         border-#{$def-float}: px-to-rem(6px) solid $white;
 
         &:hover {
-            background-color: $gray-10;
+            background-color: $gray-20;
             border-#{$def-float}-color: $secondary;
         }
 
@@ -26,7 +24,7 @@
             }
         }
         &-active {
-            background-color: $gray-10;
+            background-color: $gray-20;
             border-#{$def-float}: px-to-rem(6px) solid $secondary;
         }
     }

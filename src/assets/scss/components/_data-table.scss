@@ -29,13 +29,22 @@ table {
                 font-size: px-to-rem(16px);
                 color: $gray-900;
                 font-family: 'helvetica';
-                padding: px-to-rem(11px) !important;
+                padding: px-to-rem(16px) px-to-rem(22px) !important;
 
                 .actions {
                     display: flex;
                     align-items: center;
-                    span {
-                        margin-#{$opp-float}: px-to-rem(13px);
+                    button {
+                        &:last-child {
+                            margin-#{$def-float}: px-to-rem(7px);
+                        }
+                        span {
+                            margin-#{$opp-float}: px-to-rem(13px);
+                        }
+
+                        &:hover, &:focus {
+                            text-decoration: underline;
+                        }
                     }
 
                     a {

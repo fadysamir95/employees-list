@@ -1,1 +1,196 @@
-<app-data-table></app-data-table>
+<!-- Loader -->
+<div *ngIf="loading" class="loader-container">
+    <div class="loader"></div>
+</div>
+
+<!-- Button to open create popup -->
+<button *ngIf="!loading" class="primary-button mb-4" (click)="openModal()"><i class="icon-file mx-2"></i>{{ create | transloco
+    }}</button>
+
+<!-- Create Employee Popup -->
+<div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-between">
+                <h5 class="modal-title" id="employeeModalLabel">{{ create | transloco }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Form inside modal -->
+                <form (ngSubmit)="createEmployee(employeeForm)" #employeeForm="ngForm">
+                    <div class="form-group">
+                        <label for="{{ firstName | transloco }}">{{ firstName | transloco }}</label>
+                        <input id="firstName" name="firstName" type="text" [(ngModel)]="newEmployee.firstName"
+                            class="form-control" #firstNameCtrl="ngModel" required />
+                        <!-- Error message -->
+                        <div *ngIf="firstNameCtrl.invalid && firstNameCtrl.touched" class="error-label">
+                            <span>{{ requiredField | transloco }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ lastName | transloco }}">{{ lastName | transloco }}</label>
+                        <input id="lastName" name="lastName" type="text" [(ngModel)]="newEmployee.lastName"
+                            class="form-control" #lastNameCtrl="ngModel" required />
+                        <!-- Error message -->
+                        <div *ngIf="lastNameCtrl.invalid && lastNameCtrl.touched" class="error-label">
+                            <span>{{ requiredField | transloco }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ phone | transloco }}">{{ phone | transloco }}</label>
+                        <input id="phone" name="phone" type="text" [(ngModel)]="newEmployee.phone" class="form-control"
+                            #phoneCtrl="ngModel" required />
+                        <!-- Error message -->
+                        <div *ngIf="phoneCtrl.invalid && phoneCtrl.touched" class="error-label">
+                            <span>{{ requiredField | transloco }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ email | transloco }}">{{ email | transloco }}</label>
+                        <input id="email" name="email" type="email" [(ngModel)]="newEmployee.email" class="form-control"
+                            #emailCtrl="ngModel" email required />
+                        <!-- Error message -->
+                        <div *ngIf="emailCtrl.invalid && emailCtrl.touched" class="error-label">
+                            <span *ngIf="emailCtrl.errors?.['required']"><span>{{ requiredField | transloco
+                                    }}</span></span>
+                            <span *ngIf="emailCtrl.errors?.['email']">{{ invalidEmail | transloco }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ salary | transloco }}">{{ salary | transloco }}</label>
+                        <input id="salary" name="salary" type="number" [(ngModel)]="newEmployee.salary"
+                            class="form-control" #salaryCtrl="ngModel" required />
+                        <!-- Error message -->
+                        <div *ngIf="salaryCtrl.invalid && salaryCtrl.touched" class="error-label">
+                            <span>{{ requiredField | transloco }}</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-button mt-4 w-100" [disabled]="employeeForm.invalid">{{ add |
+                        transloco }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Employee Popup -->
+<div class="modal fade" id="updateEmployeeModal" tabindex="-1" aria-labelledby="updateEmployeeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-between">
+                <h5 class="modal-title" id="updateEmployeeModalLabel">{{ update | transloco }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="updateEmployee()" #updateEmployeeForm="ngForm">
+                    <div class="form-group">
+                        <label for="{{ firstName | transloco }}">{{ firstName | transloco }}</label>
+                        <input id="firstName" name="firstName" type="text" [(ngModel)]="currentEmployee.firstName"
+                            class="form-control" #updateFirstNameCtrl="ngModel" required />
+                        <!-- Error message -->
+                        <div *ngIf="updateFirstNameCtrl.invalid && updateFirstNameCtrl.touched" class="error-label">
+                            <span>{{ requiredField | transloco }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ lastName | transloco }}">{{ lastName | transloco }}</label>
+                        <input id="lastName" name="lastName" type="text" [(ngModel)]="currentEmployee.lastName"
+                            class="form-control" #updateLastNameCtrl="ngModel" required />
+                        <!-- Error message -->
+                        <div *ngIf="updateLastNameCtrl.invalid && updateLastNameCtrl.touched" class="error-label">
+                            <span>{{ requiredField | transloco }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ phone | transloco }}">{{ phone | transloco }}</label>
+                        <input id="phone" name="phone" type="text" [(ngModel)]="currentEmployee.phone"
+                            class="form-control" #updatePhoneCtrl="ngModel" required />
+                        <!-- Error message -->
+                        <div *ngIf="updatePhoneCtrl.invalid && updatePhoneCtrl.touched" class="error-label">
+                            <span>{{ requiredField | transloco }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ email | transloco }}">{{ email | transloco }}</label>
+                        <input id="email" name="email" type="email" [(ngModel)]="currentEmployee.email"
+                            class="form-control" #updateEmailCtrl="ngModel" email required />
+                        <!-- Error message -->
+                        <div *ngIf="updateEmailCtrl.invalid && updateEmailCtrl.touched" class="error-label">
+                            <span *ngIf="updateEmailCtrl.errors?.['required']"><span>{{ requiredField | transloco
+                                    }}</span></span>
+                            <span *ngIf="updateEmailCtrl.errors?.['email']">{{ invalidEmail | transloco }}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ salary | transloco }}">{{ salary | transloco }}</label>
+                        <input id="salary" name="salary" type="number" [(ngModel)]="currentEmployee.salary"
+                            class="form-control" #updateSalaryCtrl="ngModel" required />
+                        <!-- Error message -->
+                        <div *ngIf="updateSalaryCtrl.invalid && updateSalaryCtrl.touched" class="error-label">
+                            <span>{{ requiredField | transloco }}</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-button mt-4 w-100" [disabled]="updateEmployeeForm.invalid">{{
+                        update | transloco }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-between">
+                <h5 class="modal-title" id="deleteConfirmationModalLabel">
+                    {{ delete | transloco }}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ confirmDelete | transloco }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    {{ cancel | transloco }}
+                </button>
+                <button type="button" class="btn btn-danger" (click)="deleteConfirmed()">
+                    {{ delete | transloco }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal (After creating a new employee) -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-between">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span class="icon-approve-lg path1"></span>
+                <p>{{ employeeCreatedSuccessfully | transloco }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    {{ close | transloco }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Alert (After updating an employee) -->
+<div *ngIf="updateSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{ updateSuccessMessageSuccessfully | transloco }}</strong>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeUpdateAlert()"></button>
+</div>
+
+<!-- Employees Data Table -->
+<app-data-table *ngIf="!loading" [employees]="employees" (delete)="openDeleteConfirmation($event)"
+    (editEmployee)="openUpdateModal($event)"></app-data-table>

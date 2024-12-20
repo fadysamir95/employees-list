@@ -1,124 +1,104 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'; // Import Injectable decorator
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeesService {
 
-  private employeesKey = 'employees'; // Key used to store the data in localStorage
+  private readonly storageKey = 'employees'; // Key used to store the data in localStorage
 
-  constructor() { }
+  constructor() {
+    this.initializeMockData(); // Call to initialize the mock data
+  }
 
-  // Initial mock employees data
-  private employees = [
-    {
-      id: 1000,
-      firstName: 'Adham',
-      lastName: 'Hussien',
-      phone: '01165789236',
-      email: 'adhamhussien@gmail.com',
-      salary: '20000'
-    },
-    {
-      id: 1001,
-      firstName: 'Adham',
-      lastName: 'Hussien',
-      phone: '01165789236',
-      email: 'adhamhussien@gmail.com',
-      salary: '20000'
-    },
-    {
-      id: 1002,
-      firstName: 'Adham',
-      lastName: 'Hussien',
-      phone: '01165789236',
-      email: 'adhamhussien@gmail.com',
-      salary: '20000'
-    },
-    {
-      id: 1003,
-      firstName: 'Adham',
-      lastName: 'Hussien',
-      phone: '01165789236',
-      email: 'adhamhussien@gmail.com',
-      salary: '20000'
-    },
-    {
-      id: 1004,
-      firstName: 'Adham',
-      lastName: 'Hussien',
-      phone: '01165789236',
-      email: 'adhamhussien@gmail.com',
-      salary: '20000'
-    },
-    {
-      id: 1005,
-      firstName: 'Adham',
-      lastName: 'Hussien',
-      phone: '01165789236',
-      email: 'adhamhussien@gmail.com',
-      salary: '20000'
-    },
-    {
-      id: 1006,
-      firstName: 'Adham',
-      lastName: 'Hussien',
-      phone: '01165789236',
-      email: 'adhamhussien@gmail.com',
-      salary: '20000'
-    },
-    // More employees...
-  ];
+  // Local storage handling
+  private initializeMockData() {
+    // Ensure the code runs only in a browser environment
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      try {
+        const storedData = localStorage.getItem(this.storageKey); // Check if the employees data already exists in localStorage
 
-  // Check if localStorage is available
-  private isLocalStorageAvailable(): boolean {
-    return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+        // If localStorage is empty or doesn't contain the required data, set mock data
+        if (!storedData) {
+          console.log('Initializing mock data...');
+          // Mock data
+          const employees = [
+            { id: 1, firstName: 'Adham', lastName: 'Fathi', phone: '01145667053', email: 'adhamfathi90@gmail.com', salary: 5000 },
+            { id: 2, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 3, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 4, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 5, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 6, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 7, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 8, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 9, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 10, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 11, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 12, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
+            { id: 13, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 }
+          ];
+          localStorage.setItem(this.storageKey, JSON.stringify(employees)); // Set mock data in localStorage
+        } else {
+          console.log('Data already exists in localStorage'); // Log if data already exists
+        }
+      } catch (error) {
+        console.error('Error accessing localStorage:', error); // Log any errors
+      }
+    } else {
+      console.error('localStorage is not available'); // Log if localStorage is not available
+    }
   }
 
   // Method to get all employees
   getEmployeesData() {
-    if (this.isLocalStorageAvailable()) {
-      const employeesData = localStorage.getItem(this.employeesKey);
-
-      if (employeesData) {
-        return JSON.parse(employeesData); // Parse the stored data from JSON to an array
-      }
-    }
-
-    return this.employees; // Return the default mock data if localStorage is unavailable
+    const employeesData = localStorage.getItem(this.storageKey);
+    return employeesData ? JSON.parse(employeesData) : [];
   }
 
   // Method to add a new employee
   addEmployee(employee: { firstName: string, lastName: string, phone: string, email: string, salary: string }) {
     let employees = this.getEmployeesData(); // Retrieve the current employee list from localStorage
 
-    const maxId = employees.reduce((max: number, emp: { id: number }) => Math.max(max, emp.id), 0);
+    const maxId = employees.reduce((max: number, emp: { id: number }) => Math.max(max, emp.id), 0);  // Find the maximum ID in the list
     const newId = maxId + 1; // Ensure the new ID is unique
-    const newEmployee = { id: newId, ...employee };
+    const newEmployee = { id: newId, ...employee }; // Create the new employee object with the generated ID
 
     console.log("New Employee: ", newEmployee); // Debugging the new employee with generated id
 
     employees.push(newEmployee); // Add the new employee to the list
-
-    // Save the updated list back to localStorage
-    localStorage.setItem(this.employeesKey, JSON.stringify(employees));
-
+    localStorage.setItem(this.storageKey, JSON.stringify(employees)); // Save the updated list back to localStorage
     return newEmployee; // Return the newly added employee
   }
 
-  // Delete employee by ID
-  deleteEmployee(employeeId: string) {
-    const employees = this.getEmployeesData(); // Get employees from localStorage
+  // Method to delete employee by ID
+  deleteEmployee(employeeId: number) {
+    let employees = this.getEmployeesData(); // Retrieve the current employee list from localStorage
 
-    const index = employees.findIndex((employee: { id: string; }) => employee.id === employeeId);
+    const index = employees.findIndex((employee: { id: number; }) => employee.id === employeeId); // Find the index of the employee to be deleted
+
+    // If the employee is found, remove it from the list
     if (index !== -1) {
       employees.splice(index, 1); // Remove employee from the array
-      // Save the updated list back to localStorage
-      localStorage.setItem(this.employeesKey, JSON.stringify(employees));
+      localStorage.setItem(this.storageKey, JSON.stringify(employees)); // Save the updated list back to localStorage
       return employees; // Return the updated employee list
     } else {
-      console.error('Employee not found');
+      console.error('Employee not found'); // Log an error if the employee is not found
       return employees; // Return the unchanged array if not found
     }
+  }
+
+  // Method to update employee details
+  updateEmployee(updatedEmployee: { id: number; firstName: string; lastName: string; phone: string; email: string; salary: string }) {
+    const employees = this.getEmployeesData(); // Retrieve the current employee list from localStorage
+
+    const index = employees.findIndex((employee: { id: number }) => employee.id === updatedEmployee.id); // Find the index of the employee to be updated
+  
+    // If the employee is found, update the details
+    if (index !== -1) {
+      employees[index] = { ...employees[index], ...updatedEmployee }; // Update the employee
+      localStorage.setItem(this.storageKey, JSON.stringify(employees)); // Save changes to localStorage
+      return true; // Return success
+    }
+    return false; // Return failure if employee not found
   }
 }

@@ -1,3 +1,7 @@
 .primary-button {
     @include button-styles($primary, $white, lighten($primary, 10%), $white);
 }
+
+.secondary-button {
+    @include button-styles($secondary, $white, lighten($secondary, 10%), $white);
+}

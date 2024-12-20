@@ -12,4 +12,5 @@ export class FooterComponent {
   title = 'header.logo.title';
   employeesList = "common.employeesList";
   home = "common.home"
+  projectFullName = 'projectFullName';
 }

@@ -1,0 +1,23 @@
+// Modals
+.modal-header {
+    .btn-close {
+        margin: 0 !important;
+    }
+    .modal-title {
+        font-size: px-to-rem(16px);
+        letter-spacing: px-to-rem(0.5px);
+    }
+}
+
+.modal-body {
+    .form-group {
+        margin-bottom: px-to-rem(13px);
+        input {
+            margin-top: px-to-rem(7px) !important;
+        }
+        label {
+            font-size: px-to-rem(14px);
+            color: $gray-900;
+        }
+    }
+}

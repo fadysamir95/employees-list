@@ -1,0 +1,52 @@
+<div class="card">
+  <p-table [value]="employees" [scrollable]="true" [rowHover]="true" responsiveLayout="scroll" [resizableColumns]="true"
+    columnResizeMode="expand">
+    <!-- Header -->
+    <ng-template #header>
+      <tr>
+        <th pSortableColumn="id">{{ id | transloco }}
+          <p-sortIcon field="id"></p-sortIcon>
+        </th>
+        <th pSortableColumn="firstName">{{ firstName | transloco }}
+          <p-sortIcon field="firstName"></p-sortIcon>
+        </th>
+        <th pSortableColumn="lastName">{{ lastName | transloco }}
+          <p-sortIcon field="lastName"></p-sortIcon>
+        </th>
+        <th pSortableColumn="phone">{{ phone | transloco }}
+          <p-sortIcon field="phone"></p-sortIcon>
+        </th>
+        <th pSortableColumn="email">{{ email | transloco }}
+          <p-sortIcon field="email"></p-sortIcon>
+        </th>
+        <th pSortableColumn="salary">{{ salary | transloco }}
+          <p-sortIcon field="salary"></p-sortIcon>
+        </th>
+        <th>{{ actions | transloco }}</th>
+      </tr>
+    </ng-template>
+    <!-- Body -->
+    <ng-template #body let-employee>
+      <tr>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.firstName }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>{{ employee.phone }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.salary }}</td>
+        <td>
+          <div class="actions">
+            <button (click)="onEdit(employee)" class="p-button p-button-danger">
+              <span class="icon-edit mx-1"></span>
+              {{ update | transloco }}
+            </button>
+            <button (click)="onDelete(employee.id)" class="p-button p-button-danger">
+              <span class="icon-trash mx-1"></span>
+              {{ trash | transloco }}
+            </button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

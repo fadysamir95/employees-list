@@ -5,7 +5,22 @@
         "search": "Search",
         "viewDetails": "View Details",
         "employeesList": "Employees List",
-        "home": "Home"
+        "home": "Home",
+        "update": "Update",
+        "delete": "Delete",
+        "create": "Create New Employee",
+        "add": "Add",
+        "confirmDelete": "Are you sure you want to delete this employee?",
+        "cancel": "Cancel",
+        "requiredField": "This field is required",
+        "invalidEmail": "Please enter a valid email address",
+        "employees": "Employees",
+        "managementSystem": "Management System",
+        "employeeCreatedSuccessfully": "Employee has been created successfully!",
+        "employeeUpdatedSuccessfully": "Employee has been updated successfully!",
+        "success": "Success",
+        "close": "Close",
+        "loading": "Loading..."
     },
     "accessibility": {
         "switchLang": "Switch to Arabic"
@@ -15,5 +30,14 @@
             "title": "Go to homepage"
         },
         "language": "Switch To Arabic"
+    },
+    "table": {
+        "id": "ID",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "phone": "Phone",
+        "email": "Email",
+        "salary": "Salary",
+        "actions": "Actions"
     }
 }
