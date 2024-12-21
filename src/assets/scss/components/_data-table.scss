@@ -32,7 +32,7 @@
             }
 
             .title {
-                font-size: px-to-rem(20px);
+                font-size: px-to-rem(17px);
                 margin-bottom: px-to-rem(10px);
                 color: $primary;
             }
@@ -62,7 +62,7 @@
                         font-size: px-to-rem(16px);
                         padding: px-to-rem(22px) !important;
                         background-color: $primary !important;
-                        font-family: 'helvetica';
+                        font-family: 'DM Sans';
 
                         @include respond-to-max(medium) {
                             min-width: px-to-rem(150px);
@@ -116,6 +116,18 @@
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+html[lang="ar"] {
+    table {
+        thead {
+            tr {
+                th {
+                    font-family: 'helvetica' !important;
                 }
             }
         }

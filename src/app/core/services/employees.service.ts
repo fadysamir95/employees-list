@@ -23,19 +23,18 @@ export class EmployeesService {
           console.log('Initializing mock data...');
           // Mock data
           const employees = [
-            { id: 1, firstName: 'Adham', lastName: 'Fathi', phone: '01145667053', email: 'adhamfathi90@gmail.com', salary: 5000 },
-            { id: 2, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 3, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 4, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 5, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 6, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 7, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 8, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 9, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 10, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 11, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 12, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 },
-            { id: 13, firstName: 'Ahmed', lastName: 'Shawki', phone: '01276548890', email: 'ahmedshawki30@outlook.com', salary: 6000 }
+            { id: 1, firstName: 'Adham', lastName: 'Attia', phone: '01578345201', email: 'adhamattia@gmail.com', salary: 12000 },
+            { id: 2, firstName: 'Fathi', lastName: 'Ahmed', phone: '01265912276', email: 'fathiahmed@outlook.com', salary: 8000 },
+            { id: 3, firstName: 'Ebrahim', lastName: 'Othman', phone: '01083047224', email: 'ebrahimothman12@outlook.com', salary: 20000 },
+            { id: 4, firstName: 'Ahmed', lastName: 'Badr', phone: '01209480028', email: 'ahmedbadr60@outlook.com', salary: 16500 },
+            { id: 5, firstName: 'Adel', lastName: 'Zaki', phone: '01156772909', email: 'adel_zaki@outlook.com', salary: 11200 },
+            { id: 6, firstName: 'Shady', lastName: 'Naem', phone: '01067322134', email: 'shadynaem100@gmail.com', salary: 28500 },
+            { id: 7, firstName: 'Amir', lastName: 'Farag', phone: '01521938864', email: 'amirfarag@outlook.com', salary: 45000 },
+            { id: 8, firstName: 'Ramez', lastName: 'Emil', phone: '01288393356', email: 'ramez_emil20@gmail.com', salary: 60000 },
+            { id: 9, firstName: 'Fady', lastName: 'Samir', phone: '01208348890', email: 'fadysamir@outlook.com', salary: 10000 },
+            { id: 10, firstName: 'Rashad', lastName: 'Abdulaziz', phone: '01288393356', email: 'rashad_abdulaziz@gmail.com', salary: 14600 },
+            { id: 11, firstName: 'Mostafa', lastName: 'Ibrahim', phone: '01288393356', email: 'mostafaibrahim@outlook.com', salary: 28500 },
+            { id: 12, firstName: 'Mohamed', lastName: 'Amr', phone: '01288393356', email: 'mohamed_amr@gmail.com', salary: 35400 }
           ];
           localStorage.setItem(this.storageKey, JSON.stringify(employees)); // Set mock data in localStorage
         } else {

@@ -27,7 +27,7 @@
 <!-- Table -->
 <div class="card table-card">
   <p-table [scrollable]="true" [rowHover]="true" responsiveLayout="scroll" [resizableColumns]="true"
-    columnResizeMode="expand" [value]="filteredEmployees">
+    columnResizeMode="expand" [value]="filteredEmployees" [paginator]="true" [rows]="10">
     <!-- Table Header -->
     <ng-template #header>
       <tr>
@@ -56,8 +56,8 @@
     <ng-template #body let-employee>
       <tr>
         <td>{{ employee.id }}</td>
-        <td>{{ employee.firstName }}</td>
-        <td>{{ employee.lastName }}</td>
+        <td class="text-capitalize">{{ employee.firstName }}</td>
+        <td class="text-capitalize">{{ employee.lastName }}</td>
         <td>{{ employee.phone }}</td>
         <td>{{ employee.email }}</td>
         <td>{{ employee.salary }}</td>
