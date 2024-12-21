@@ -1,142 +1,123 @@
-table {
-    thead {
-        tr {
-            th {
-                color: $white !important;
-                font-size: px-to-rem(16px);
-                padding: px-to-rem(22px) !important;
-                background-color: $primary !important;
-                font-family: 'helvetica';
+/* Clear Filters */
+.clear-filters {
+    text-align: $opp-float;
+    button {
+        color: $primary;
+        font-size: px-to-rem(16px);
+        border-bottom: 1px solid transparent;
+
+        &:hover {
+            color: $secondary;
+            border-bottom: 1px solid $secondary;
+        }
+    }
+}
+
+.card {
+    /* Filteration card */
+    &.filteration-card {
+        background-color: $gray-20;
+        padding: px-to-rem(22px) px-to-rem(22px) px-to-rem(12px) px-to-rem(22px);
+        @include respond-to-max(medium) {
+            padding: px-to-rem(15px) px-to-rem(20px);
+        }
+
+        .filteration {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            @include respond-to-max(medium) {
+                flex-direction: column;
+            }
+
+            .title {
+                font-size: px-to-rem(20px);
+                margin-bottom: px-to-rem(10px);
+                color: $primary;
+            }
+
+            input {
+                padding: px-to-rem(10px);
+                border: 1px solid $primary;
+                border-radius: px-to-rem(8px);
+                margin-bottom: px-to-rem(10px);
+                max-width: 14%;
                 @include respond-to-max(medium) {
-                    min-width: px-to-rem(150px);
-                    font-size: px-to-rem(14px);
-                    padding: px-to-rem(11px);
+                    width: 100%;
+                    max-width: 100%;
                 }
             }
         }
     }
 
-    tbody {
-        tr {
-            &:nth-child(2n + 1) {
-                td {
-                    background-color: $gray-10 !important;
-                }
-            }
+    /* Table card */
+    &.table-card {
 
-            td {
-                text-align: $def-float !important;
-                font-size: px-to-rem(16px);
-                color: $gray-900;
-                font-family: 'helvetica';
-                padding: px-to-rem(16px) px-to-rem(22px) !important;
+        table {
+            thead {
+                tr {
+                    th {
+                        color: $white !important;
+                        font-size: px-to-rem(16px);
+                        padding: px-to-rem(22px) !important;
+                        background-color: $primary !important;
+                        font-family: 'helvetica';
 
-                .actions {
-                    display: flex;
-                    align-items: center;
-                    button {
-                        &:last-child {
-                            margin-#{$def-float}: px-to-rem(7px);
-                        }
-                        span {
-                            margin-#{$opp-float}: px-to-rem(13px);
-                        }
-
-                        &:hover, &:focus {
-                            text-decoration: underline;
-                        }
-                    }
-
-                    a {
-                        text-decoration: none;
-
-                        &:hover {
-                            text-decoration: underline;
+                        @include respond-to-max(medium) {
+                            min-width: px-to-rem(150px);
+                            font-size: px-to-rem(14px);
+                            padding: px-to-rem(11px);
                         }
                     }
                 }
             }
-        }
-    }
-}
 
-.p-paginator {
-    margin-top: px-to-rem(10px);
+            tbody {
+                tr {
+                    &:nth-child(2n + 1) {
+                        td {
+                            background-color: $gray-10 !important;
+                        }
+                    }
 
-    p-inputnumber {
-        display: none;
-    }
+                    td {
+                        text-align: $def-float !important;
+                        font-size: px-to-rem(16px);
+                        color: $gray-900;
+                        font-family: 'helvetica';
+                        padding: px-to-rem(16px) px-to-rem(22px) !important;
 
-    .p-paginator-element {
-        &:not(.p-disabled) {
-            &:hover {
-                background-color: lighten($primary, 10%);
-                .p-icon-wrapper {
-                    color: $white;
+                        .actions {
+                            display: flex;
+                            align-items: center;
+
+                            button {
+                                &:last-child {
+                                    margin-#{$def-float}: px-to-rem(7px);
+                                }
+
+                                span {
+                                    margin-#{$opp-float}: px-to-rem(13px);
+                                }
+
+                                &:hover,
+                                &:focus {
+                                    text-decoration: underline;
+                                }
+                            }
+
+                            a {
+                                text-decoration: none;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }
-    }
-
-    .p-paginator-next,
-    .p-paginator-first {
-        background-color: $white;
-        border-top-#{$def-float}-radius: px-to-rem(10px);
-        border-bottom-#{$def-float}-radius: px-to-rem(10px);
-        border: 1px solid $gray-30;
-    }
-
-    .p-paginator-prev,
-    .p-paginator-last {
-        background-color: $white;
-        border-top-#{$opp-float}-radius: px-to-rem(10px);
-        border-bottom-#{$opp-float}-radius: px-to-rem(10px);
-        border: 1px solid $gray-30;
-    }
-
-    .p-paginator-prev {
-        @include respond-to-max(medium) {
-            margin-#{$opp-float}: px-to-rem(15px);
-        }
-    }
-
-    .p-paginator-next {
-        @include respond-to-max(medium) {
-            margin-#{$def-float}: px-to-rem(15px);
-        }
-    }
-
-    .p-paginator-pages {
-        margin: 0 px-to-rem(8px);
-        @include respond-to-max(medium) {
-            display: none;
-        }
-
-        .p-paginator-element {
-            border-radius: px-to-rem(10px);
-
-            &.p-highlight {
-                margin: px-to-rem(5px);
-                background-color: $primary;
-                color: $white;
-            }
-
-            &:hover {
-                background-color: lighten($primary, 10%);
-                color: $white;
-            }
-        }
-    }
-}
-
-html[lang="ar"] {
-
-    .p-paginator-next,
-    .p-paginator-last,
-    .p-paginator-prev,
-    .p-paginator-first {
-        .p-icon-wrapper {
-            transform: rotate(180deg);
         }
     }
 }

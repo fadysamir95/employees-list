@@ -3,13 +3,11 @@
 
 // init
 @import "./global/config";
-@import "./global/variables";
 @import "./global/colors";
 @import "./global/fonts";
 @import "./global/init";
 @import "./global/mixins";
 @import './global/functions';
-@import "./languages/fonts-mixins";
 @import "./global/base";
 @import "./global/layout";
 
@@ -18,7 +16,6 @@
 
 // Components
 @import "./components/loader";
-@import "./components/inputs";
 @import "./components/buttons";
 @import "./components/scrollbar";
 @import "./components/header";

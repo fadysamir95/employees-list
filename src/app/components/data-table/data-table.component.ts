@@ -12,6 +12,7 @@ import { TranslocoModule } from '@ngneat/transloco';
   templateUrl: './data-table.component.html'
 })
 export class DataTableComponent {
+  // Translations
   details = "common.viewDetails"
   id = "table.id"
   firstName = "table.firstName"
@@ -22,6 +23,8 @@ export class DataTableComponent {
   actions = "table.actions"
   update = "common.update"
   trash = "common.delete"
+  filterBy = "filter.filterBy"
+  clear = "filter.clear"
 
   constructor() { }
 
@@ -29,6 +32,9 @@ export class DataTableComponent {
 
   @Output() editEmployee = new EventEmitter<any>(); // Emit selected employee for editing
   @Output() delete = new EventEmitter<number>(); // Output to notify parent about deletion
+
+  filterCriteria: { [key: string]: string | number } = {}; // Filter criteria for the table
+  filteredEmployees: Employee[] = []; // Array to hold filtered employees
 
   // Emit the delete event when the delete button is clicked
   onDelete(employeeId: number) {
@@ -39,4 +45,45 @@ export class DataTableComponent {
   onEdit(employee: any) {
     this.editEmployee.emit(employee); // Send employee to the parent
   }
+
+  // Initialize the filtered list when the input changes
+  ngOnChanges() {
+    this.filteredEmployees = [...this.employees]; // Initialize the filtered list
+  }
+
+  // Apply the filter based on input
+  onFilter(event: Event, field: keyof Employee) {
+    const target = event.target as HTMLInputElement; // Ensure the target is an HTMLInputElement
+    if (!target) return; // Gracefully handle cases where target is null
+  
+    const filterValue = target.value.toLowerCase();
+    this.filterCriteria[field] = filterValue;
+  
+    this.filteredEmployees = this.employees.filter((employee) => {
+      return Object.keys(this.filterCriteria).every((key) => {
+        const criteriaValue = this.filterCriteria[key as keyof Employee];
+        if (!criteriaValue) return true; // Skip if no filter is set for this field
+  
+        const employeeValue = employee[key as keyof Employee];
+        if (typeof employeeValue === "number" && typeof criteriaValue === "string") {
+          // Handle numeric fields: Convert number to string
+          return employeeValue.toString().includes(criteriaValue);
+        } else if (typeof employeeValue === "string" && typeof criteriaValue === "string") {
+          // Handle string fields: Use toLowerCase for case-insensitive comparison
+          return employeeValue.toLowerCase().includes(criteriaValue.toLowerCase());
+        }
+        return false; // Unexpected data type
+      });
+    });
+  }
+
+  clearFilters() {
+    this.filterCriteria = {}; // Clear all filter criteria
+    this.filteredEmployees = [...this.employees]; // Reset filtered employees to the full list
+  
+    // Reset input fields
+    const filterInputs = document.querySelectorAll<HTMLInputElement>('.filter-input');
+    filterInputs.forEach(input => input.value = '');
+  }
+  
 }

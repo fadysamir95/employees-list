@@ -87,6 +87,7 @@ export class EmployeesListComponent {
     this.resetForm(); // Reset form fields
     this.closeModal(employeeForm); // Close modal
     this.showSuccessModal(); // Show success modal
+    this.employees = this.employeesService.getEmployeesData(); // Refresh the employee list
   }
 
   // Show the success modal

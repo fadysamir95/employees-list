@@ -31,6 +31,10 @@
         },
         "language": "Switch To Arabic"
     },
+    "filter": {
+        "filterBy": "Filter By :",
+        "clear": "Clear Filters"
+    },
     "table": {
         "id": "ID",
         "firstName": "First Name",

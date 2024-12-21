@@ -1,5 +1,4 @@
-/* ltr variable support
-================================ */
+/* ltr variable support */
 $def-float: left;
 $opp-float: right;
 $def-direction: ltr;
@@ -8,16 +7,3 @@ $body-text-align: $def-float;
 $def-scale: 1;
 $opp-scale: -1;
 $breadcrumb-rotate-angel: -90deg;
-
-/* English fonts used
-================================ */
-// $default-fonts: OpenSans-Regular "OpenSans-Regular" normal, OpenSans-Medium "OpenSans-Medium" 500, OpenSans-Light "OpenSans-Light" 300, OpenSans-SemiBold "OpenSans-SemiBold" 600, OpenSans-Bold "OpenSans-Bold" 700, OpenSans-ExtraBold 'OpenSans-ExtraBold' 700;
-// $fonts-ext: woff woff2;
-// $default-fonts-folder: 'web-fonts/OpenSans';
-// $headline-fonts: Max-SemiBold "Max-SemiBold" 600, ;
-// $headline-fonts-folder: 'web-fonts/Max-SemiBold';
-
-/* Generate font face used 
-================================ */
-// @include font-face($default-fonts, $default-fonts-folder, normal, normal, $fonts-ext);
-// @include font-face($headline-fonts, $headline-fonts-folder, normal, normal, $fonts-ext);

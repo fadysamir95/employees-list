@@ -1,18 +1,20 @@
-/* Custom Scrollbar Styling */
-body::-webkit-scrollbar {
-    width: px-to-rem(8px);
-}
+/* Custom Scrollbar */
+body {
+    &::-webkit-scrollbar {
+        width: px-to-rem(8px);
+    }
 
-body::-webkit-scrollbar-track {
-    background: $gray-10;
-    border-radius: px-to-rem(5px);
-}
+    &::-webkit-scrollbar-track {
+        background: $gray-10;
+        border-radius: px-to-rem(5px);
+    }
 
-body::-webkit-scrollbar-thumb {
-    background: $secondary;
-    border-radius: px-to-rem(5px);
-}
+    &::-webkit-scrollbar-thumb {
+        background: $secondary;
+        border-radius: px-to-rem(5px);
 
-body::-webkit-scrollbar-thumb:hover {
-    background: lighten($color: $secondary, $amount: 10%);
+        &:hover {
+            background: lighten($color: $secondary, $amount: 10%);
+        }
+    }
 }

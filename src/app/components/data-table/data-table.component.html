@@ -1,7 +1,34 @@
-<div class="card">
-  <p-table [value]="employees" [scrollable]="true" [rowHover]="true" responsiveLayout="scroll" [resizableColumns]="true"
-    columnResizeMode="expand">
-    <!-- Header -->
+<!-- Clear Filters-->
+<div class="clear-filters mb-2">
+  <button (click)="clearFilters()">
+    {{ clear | transloco }}
+  </button>
+</div>
+
+<!-- Filteration -->
+<div class="card filteration-card mb-2">
+  <div class="filteration">
+    <h2 class="title">{{ filterBy | transloco }}</h2>
+    <input type="number" (input)="onFilter($event, 'id')" placeholder="{{ id | transloco }}" class="filter-input"
+      aria-label="ID" #filterInput />
+    <input type="text" (input)="onFilter($event, 'firstName')" placeholder="{{ firstName | transloco }}"
+      class="filter-input" aria-label="First Name" #filterInput />
+    <input type="text" (input)="onFilter($event, 'lastName')" placeholder="{{ lastName | transloco }}"
+      class="filter-input" aria-label="Last Name" #filterInput />
+    <input type="text" (input)="onFilter($event, 'phone')" placeholder="{{ phone | transloco }}" class="filter-input"
+      aria-label="Phone" #filterInput />
+    <input type="text" (input)="onFilter($event, 'email')" placeholder="{{ email | transloco }}" class="filter-input"
+      aria-label="Email" #filterInput />
+    <input type="number" (input)="onFilter($event, 'salary')" placeholder="{{ salary | transloco }}"
+      class="filter-input" aria-label="Salary" #filterInput />
+  </div>
+</div>
+
+<!-- Table -->
+<div class="card table-card">
+  <p-table [scrollable]="true" [rowHover]="true" responsiveLayout="scroll" [resizableColumns]="true"
+    columnResizeMode="expand" [value]="filteredEmployees">
+    <!-- Table Header -->
     <ng-template #header>
       <tr>
         <th pSortableColumn="id">{{ id | transloco }}
@@ -25,7 +52,7 @@
         <th>{{ actions | transloco }}</th>
       </tr>
     </ng-template>
-    <!-- Body -->
+    <!-- Table Body -->
     <ng-template #body let-employee>
       <tr>
         <td>{{ employee.id }}</td>

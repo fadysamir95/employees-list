@@ -3,18 +3,4 @@
 // Convert pixels to rem units
 @function px-to-rem($px) {
     @return calc($px / $base-font-size) * 1rem;
-    // Alternative using math.div:
-    // @return math.div($px, $base-font-size) * 1rem;
-}
-
-// Calculate percentage based on item count
-@function divide-by-items($item-count) {
-    @if $item-count > 0 {
-        @return calc(100% / $item-count);
-        // Alternative using math.div:
-        // @return math.div(100%, $item-count);
-    }
-    @else {
-        @error "Item count must be greater than 0.";
-    }
 }
