@@ -66,7 +66,6 @@ export class EmployeesService {
 
     employees.push(newEmployee); // Add the new employee to the list
     localStorage.setItem(this.storageKey, JSON.stringify(employees)); // Save the updated list back to localStorage
-    return newEmployee; // Return the newly added employee
   }
 
   // Method to delete employee by ID

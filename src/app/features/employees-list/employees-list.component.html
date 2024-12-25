@@ -4,8 +4,19 @@
 </div>
 
 <!-- Button to open create popup -->
-<button *ngIf="!loading" class="primary-button mb-4" (click)="openModal()"><i class="icon-file mx-2"></i>{{ create | transloco
+<button *ngIf="!loading" class="primary-button mb-4" (click)="openModal()"><i class="icon-file mx-2"></i>{{ create |
+    transloco
     }}</button>
+
+<!-- Success Alert (After updating an employee) -->
+<div *ngIf="updateSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{ updateSuccessMessageSuccessfully | transloco }}</strong>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeUpdateAlert()"></button>
+</div>
+
+<!-- Employees Data Table -->
+<app-data-table *ngIf="!loading" [employees]="employees" (delete)="openDeleteConfirmation($event)"
+    (editEmployee)="openUpdateModal($event)"></app-data-table>
 
 <!-- Create Employee Popup -->
 <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
@@ -68,6 +79,26 @@
                     <button type="submit" class="primary-button mt-4 w-100" [disabled]="employeeForm.invalid">{{ add |
                         transloco }}</button>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal (After creating a new employee) -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-between">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span class="icon-approve-lg path1"></span>
+                <p>{{ employeeCreatedSuccessfully | transloco }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    {{ close | transloco }}
+                </button>
             </div>
         </div>
     </div>
@@ -164,33 +195,3 @@
         </div>
     </div>
 </div>
-
-<!-- Success Modal (After creating a new employee) -->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header justify-content-between">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <span class="icon-approve-lg path1"></span>
-                <p>{{ employeeCreatedSuccessfully | transloco }}</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    {{ close | transloco }}
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Success Alert (After updating an employee) -->
-<div *ngIf="updateSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{ updateSuccessMessageSuccessfully | transloco }}</strong>
-    <button type="button" class="btn-close" aria-label="Close" (click)="closeUpdateAlert()"></button>
-</div>
-
-<!-- Employees Data Table -->
-<app-data-table *ngIf="!loading" [employees]="employees" (delete)="openDeleteConfirmation($event)"
-    (editEmployee)="openUpdateModal($event)"></app-data-table>

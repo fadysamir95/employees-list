@@ -11,7 +11,12 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()), provideHttpClient(), provideAnimationsAsync(),
+  providers: [
+  provideZoneChangeDetection({ eventCoalescing: true }),
+  provideRouter(routes),
+  provideClientHydration(withEventReplay()),
+  provideHttpClient(),
+  provideAnimationsAsync(),
   providePrimeNG({
     theme: {
       preset: Aura,
@@ -19,16 +24,6 @@ export const appConfig: ApplicationConfig = {
         darkModeSelector: false || 'none'
       }
     }
-  }),
-  provideTransloco({
-    config: {
-      availableLangs: ['en'],
-      defaultLang: 'en',
-      // Remove this option if your application doesn't support changing language in runtime.
-      reRenderOnLangChange: true,
-      prodMode: !isDevMode(),
-    },
-    loader: TranslocoHttpLoader
   }),
   provideTransloco({
     config: {

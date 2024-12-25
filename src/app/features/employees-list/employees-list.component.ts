@@ -36,15 +36,6 @@ export class EmployeesListComponent {
 
   loading: boolean = false; // Loader state
 
-  // Object to store the new employee details
-  newEmployee: Omit<Employee, 'id'> = {
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    salary: ''
-  };
-
   // ID of the employee to delete
   employeeToDelete: number | null = null;
 
@@ -68,6 +59,21 @@ export class EmployeesListComponent {
     }, 1000);
   }
 
+  // Object to store the new employee details
+  newEmployee: Omit<Employee, 'id'> = {
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    salary: ''
+  };
+
+  // Open create modal
+  openModal() {
+    const modal = new window.bootstrap.Modal(document.getElementById('employeeModal'));
+    modal.show(); // Show the modal
+  }
+
   // Create a new employee
   createEmployee(employeeForm: NgForm) {
     // Check if all fields are filled
@@ -82,33 +88,24 @@ export class EmployeesListComponent {
       return;
     }
 
-    const createdEmployee = this.employeesService.addEmployee(this.newEmployee); // Add the new employee
-    this.employees.push(createdEmployee); // Update local array
-    this.resetForm(); // Reset form fields
+    this.employeesService.addEmployee(this.newEmployee); // Send new employee to the service
     this.closeModal(employeeForm); // Close modal
     this.showSuccessModal(); // Show success modal
     this.employees = this.employeesService.getEmployeesData(); // Refresh the employee list
+  }
+
+  // Close create modal
+  closeModal(form: NgForm) {
+    form.resetForm();
+
+    const modal = window.bootstrap.Modal.getInstance(document.getElementById('employeeModal'));
+    modal.hide(); // Hide the modal
   }
 
   // Show the success modal
   showSuccessModal() {
     const successModal = new bootstrap.Modal(document.getElementById('successModal'));
     successModal.show();
-  }
-
-  // Open create modal
-  openModal() {
-    const modal = new window.bootstrap.Modal(document.getElementById('employeeModal'));
-    modal.show(); // Show the modal
-  }
-
-  // Close creatw modal
-  closeModal(form: NgForm) {
-    // Reset the form control states (touched, dirty, etc.)
-    form.resetForm();
-  
-    const modal = window.bootstrap.Modal.getInstance(document.getElementById('employeeModal'));
-    modal.hide(); // Hide the modal
   }
 
   // Open delete confirmation modal
@@ -165,6 +162,13 @@ export class EmployeesListComponent {
     }
   }
 
+  // Close the update modal
+  closeUpdateModal() {
+    const modalElement = document.getElementById('updateEmployeeModal');
+    const modal = bootstrap.Modal.getInstance(modalElement!);
+    modal?.hide();
+  }
+
   // Show success alert after update
   showUpdateSuccessAlert() {
     this.updateSuccess = true; // Set the flag to true to display the alert
@@ -176,13 +180,6 @@ export class EmployeesListComponent {
   // Close the success alert
   closeUpdateAlert() {
     this.updateSuccess = false; // Set the flag to false to hide the alert
-  }
-
-  // Close the update modal
-  closeUpdateModal() {
-    const modalElement = document.getElementById('updateEmployeeModal');
-    const modal = bootstrap.Modal.getInstance(modalElement!);
-    modal?.hide();
   }
 
   // Reset the form

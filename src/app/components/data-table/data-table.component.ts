@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TableModule } from 'primeng/table';
-import { EmployeesService } from '../../core/services/employees.service';
 import { Employee } from '../../core/interfaces/employee';
 import { RouterModule } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
@@ -8,7 +7,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 @Component({
   selector: 'app-data-table',
   imports: [TableModule, RouterModule, TranslocoModule],
-  providers: [EmployeesService],
+  providers: [],
   templateUrl: './data-table.component.html'
 })
 export class DataTableComponent {
@@ -57,7 +56,9 @@ export class DataTableComponent {
     if (!target) return; // Gracefully handle cases where target is null
   
     const filterValue = target.value.toLowerCase();
+    console.log('Filter Value:', filterValue);
     this.filterCriteria[field] = filterValue;
+    console.log('Filter Criteria:', this.filterCriteria);
   
     this.filteredEmployees = this.employees.filter((employee) => {
       return Object.keys(this.filterCriteria).every((key) => {
@@ -67,10 +68,12 @@ export class DataTableComponent {
         const employeeValue = employee[key as keyof Employee];
         if (typeof employeeValue === "number" && typeof criteriaValue === "string") {
           // Handle numeric fields: Convert number to string
-          return employeeValue.toString().includes(criteriaValue);
+          // return employeeValue.toString().includes(criteriaValue);
+          return employeeValue.toString() === criteriaValue;
         } else if (typeof employeeValue === "string" && typeof criteriaValue === "string") {
           // Handle string fields: Use toLowerCase for case-insensitive comparison
-          return employeeValue.toLowerCase().includes(criteriaValue.toLowerCase());
+          // return employeeValue.toLowerCase().includes(criteriaValue.toLowerCase());
+          return employeeValue.toLowerCase() === criteriaValue.toLowerCase();
         }
         return false; // Unexpected data type
       });

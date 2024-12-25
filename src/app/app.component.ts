@@ -11,11 +11,8 @@ import { FooterComponent } from "./shared/footer/footer.component";
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'employees-list';
 
-  constructor(
-    private languageService: LanguageService,
-  ) {}
+  constructor(private languageService: LanguageService,) { }
 
   ngOnInit(): void {
     this.languageService.initializeLanguage();

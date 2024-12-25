@@ -37,11 +37,12 @@ Ensure you have the following installed:
 ---
 
 ## Features
-- **Data Table**: Displays employee data with sortable and filterable columns.
+- **Data Table**: Displays employees data with sortable and filterable columns.
 - **Filtering**: Users can filter data by `ID`, `First Name`, `Last Name`, `Phone`, `Email`, and `Salary`.
 - **Sorting**: Column-based sorting is supported.
 - **Pagination**: The table supports pagination for efficient data display.
 - **Clear Filters**: A button to reset all filters and display the unfiltered data.
+- **CRUD**: Basic Create, Read, Update, Delete operations are supported through a simple forms
 
 ---
 
